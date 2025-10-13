@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* ── Theme tokens ───────────────────────────────────────────── */
+:root {
+  /* surfaces & text */
+  --bg: 0 0% 100%;
+  --fg: 210 15% 12%;
+  --card: 0 0% 98%;
+  --card-fg: 210 15% 12%;
+  --muted: 210 12% 40%;
+  --muted-fg: 210 10% 40%;
+
+  /* accents & chrome */
+  --primary: 210 100% 45%;
+  --border: 210 16% 90%;
+  --ring: 210 100% 45%;
+
+  /* misc */
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --radius: 14px;
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: 220 15% 8%;
+  --fg: 0 0% 100%;
+  --card: 220 14% 12%;
+  --card-fg: 0 0% 100%;
+  --muted: 210 10% 70%;
+  --muted-fg: 210 10% 70%;
+
+  --primary: 200 100% 60%;
+  --border: 220 14% 18%;
+  --ring: 200 100% 60%;
+
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+  color-scheme: dark;
+}
+
+/* ── Base ────────────────────────────── */
+html,
+body {
+  height: 100%;
+  background: hsl(var(--bg));
+  color: hsl(var(--fg));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* smooth theme fade */
+  transition-property: background-color, color;
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Opt-in smooth theme transitions for all themed surfaces ── */
+.theme-transition,
+.bg-background,
+.border-border {
+  /* Fade surfaces only */
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Text selection that matches theme */
+::selection {
+  background: hsl(var(--primary) / 0.25);
+  color: hsl(var(--fg));
+}
+
+/* Subtle scrollbars that follow theme (Chromium/WebKit) */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+}
+.dark *::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+}
+
+/* ── Semantic utility helpers (so JSX stays clean) ──────────── */
+@layer utilities {
+  .bg-background {
+    background: hsl(var(--bg));
+  }
+  .text-foreground {
+    color: hsl(var(--fg));
+  }
+
+  .bg-card {
+    background: hsl(var(--card));
+  }
+  .text-card {
+    color: hsl(var(--card-fg));
+  }
+
+  .text-muted {
+    color: hsl(var(--muted-fg));
+  }
+
+  .border-border {
+    border-color: hsl(var(--border));
+  } /* ✅ pair with .border */
+  .ring-ring {
+    --tw-ring-color: hsl(var(--ring));
+  }
+
+  .bg-primary {
+    background: hsl(var(--primary));
+  }
+
+  .text-primary {
+    color: hsl(var(--primary));
+  }
+
+  .theme-transition {
+    transition:
+      background-color 0.6s,
+      color 0.6s,
+      border-color 0.6s;
+  }
+}
+
+/* ── Component-ish defaults ──────────── */
+.card {
+  background: hsl(var(--card));
+  color: hsl(var(--card-fg));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary {
+  background: hsl(var(--primary));
+  color: #fff;
+  border-radius: calc(var(--radius) - 6px);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn-outline {
+  border: 1px solid hsl(var(--border));
+  background: transparent;
+  color: hsl(var(--fg));
+  border-radius: calc(var(--radius) - 6px);
+}
+
+.bg-border {
+  background: hsl(var(--border));
+}
