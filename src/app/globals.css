@@ -159,6 +159,14 @@ body {
   background: transparent;
   color: hsl(var(--fg));
   border-radius: calc(var(--radius) - 6px);
+  cursor: pointer;
+}
+
+.btn-unlocked {
+  background: #46dd82;
+  color: #fff;
+  border-radius: calc(var(--radius) - 6px);
+  cursor: pointer;
 }
 
 .bg-border {

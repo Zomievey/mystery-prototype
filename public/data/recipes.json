@@ -1,0 +1,67 @@
+[
+  {
+    "id": "creamy-garlic-pasta",
+    "title": "Creamy Garlic Pasta",
+    "image": "/images/garlic-pasta.jpg",
+    "category": "Dinner",
+    "prepTime": "15 minutes",
+    "cookTime": "20 minutes",
+    "servings": 4,
+    "ingredients": [
+      {
+        "id": "fettuccine",
+        "label": "Fettuccine",
+        "qty": 500,
+        "unit": "g",
+        "aisle": "Pasta"
+      },
+      {
+        "id": "garlic",
+        "label": "Garlic cloves",
+        "qty": 1.0,
+        "unit": "pcs",
+        "aisle": "Produce"
+      },
+      {
+        "id": "butter",
+        "label": "Butter",
+        "qty": 2,
+        "unit": "tbsp",
+        "aisle": "Dairy"
+      },
+      {
+        "id": "cream",
+        "label": "Heavy cream",
+        "qty": 250,
+        "unit": "ml",
+        "aisle": "Dairy"
+      },
+      {
+        "id": "parmesan",
+        "label": "Parmesan, grated",
+        "qty": 60,
+        "unit": "g",
+        "aisle": "Dairy"
+      },
+      { "id": "salt", "label": "Salt", "qty": 0.5, "unit": "tsp" },
+      { "id": "pepper", "label": "Black pepper", "qty": 0.25, "unit": "tsp" },
+      {
+        "id": "parsley",
+        "label": "Fresh parsley",
+        "qty": 10,
+        "unit": "g",
+        "aisle": "Produce",
+        "optional": true
+      }
+    ],
+    "instructions": [
+      "Cook pasta according to package instructions.",
+      "In a large pan, melt butter over medium heat. Add garlic and sauté until fragrant.",
+      "Pour in heavy cream and bring to a simmer.",
+      "Add parmesan cheese and stir until melted and smooth.",
+      "Drain pasta and add to the sauce, tossing to coat.",
+      "Season with salt and pepper to taste.",
+      "Garnish with fresh parsley before serving."
+    ]
+  }
+]

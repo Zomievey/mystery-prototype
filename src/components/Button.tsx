@@ -5,7 +5,7 @@ import { m, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/cn";
 
 type ButtonProps = {
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "unlocked";
 } & HTMLMotionProps<"button">;
 
 const variants = {
@@ -13,6 +13,8 @@ const variants = {
     "btn-primary px-4 py-2 shadow-sm hover:brightness-105 active:brightness-95",
   outline:
     "btn-outline px-4 py-2 hover:bg-[hsl(var(--card))/0.5] active:bg-[hsl(var(--card))/0.8]",
+  unlocked:
+    "btn-unlocked px-4 py-2 shadow-sm hover:brightness-105 active:brightness-95",
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(

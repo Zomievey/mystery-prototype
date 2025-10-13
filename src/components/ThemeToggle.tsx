@@ -13,7 +13,7 @@ export default function ThemeToggle() {
   const isDark = resolvedTheme === "dark";
 
   useEffect(() => setMounted(true), []);
-  if (!mounted) return <div className="h-9 w-[110px]" aria-hidden="true" />;
+  if (!mounted) return <div className="h-7 w-[72px]" aria-hidden="true" />;
 
   return (
     <LazyMotion features={loadFeatures}>
@@ -24,15 +24,14 @@ export default function ThemeToggle() {
         aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
         title={`Switch to ${isDark ? "light" : "dark"} mode`}
         onClick={() => setTheme(isDark ? "light" : "dark")}
-        whileTap={{ scale: prefersReduced ? 1 : 0.985 }}
+        whileTap={{ scale: prefersReduced ? 1 : 0.97 }}
         className={[
-          "group relative inline-flex h-9 w-[110px] items-center rounded-full",
-          "overflow-hidden", // ← keeps thumb inside
-          "border border-black/10 dark:border-white/10",
+          "group relative inline-flex h-7 w-[72px] items-center rounded-full",
+          "overflow-hidden border border-black/10 dark:border-white/10",
           "bg-white/70 dark:bg-white/5 backdrop-blur",
-          "shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_1px_2px_rgba(0,0,0,0.08)]",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-          "focus-visible:ring-blue-500 focus-visible:ring-offset-[hsl(var(--bg))]",
+          "shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_1px_2px_rgba(0,0,0,0.08)]",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+          "focus-visible:ring-offset-[hsl(var(--bg))]",
         ].join(" ")}
       >
         {/* gradient accent sweep */}
@@ -42,39 +41,23 @@ export default function ThemeToggle() {
           initial={false}
           animate={{
             background: isDark
-              ? "linear-gradient(135deg, rgba(17,24,39,0.6), rgba(59,130,246,0.25))"
+              ? "linear-gradient(135deg, rgba(17,24,39,0.7), rgba(59,130,246,0.3))"
               : "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(59,130,246,0.12))",
           }}
-          transition={{ type: "tween", duration: 0.6 }} // ← match your 600ms theme fade
+          transition={{ type: "tween", duration: 0.5 }}
         />
-
-        {/* labels */}
-        <span className="z-10 flex w-full items-center justify-between px-3 text-xs font-medium">
-          <m.span
-            initial={false}
-            animate={{ opacity: isDark ? 0.4 : 0.95, y: isDark ? 1 : 0 }}
-            transition={{ duration: 0.25 }}
-            className="select-none text-[hsl(var(--fg))]"
-          ></m.span>
-          <m.span
-            initial={false}
-            animate={{ opacity: isDark ? 0.95 : 0.4, y: isDark ? 0 : 1 }}
-            transition={{ duration: 0.25 }}
-            className="select-none text-[hsl(var(--fg))]"
-          ></m.span>
-        </span>
 
         {/* thumb */}
         <m.span
           aria-hidden
           layout
           className={[
-            "absolute left-1 top-1 h-7 w-[52px] rounded-full transform-gpu", // ← GPU transform
-            "bg-[hsl(var(--card))] shadow-[0_4px_14px_rgba(0,0,0,0.15)]",
+            "absolute left-[3px] top-[3px] h-[22px] w-[33px] rounded-full transform-gpu",
+            "bg-[hsl(var(--card))] shadow-[0_3px_10px_rgba(0,0,0,0.12)]",
             "border border-black/10 dark:border-white/10 cursor-pointer",
           ].join(" ")}
-          animate={{ x: isDark ? 50 : 0 }} // ← correct travel
-          transition={{ type: "spring", stiffness: 220, damping: 30 }} // ← slower, smoother
+          animate={{ x: isDark ? 34 : 0 }}
+          transition={{ type: "spring", stiffness: 220, damping: 28 }}
         >
           <div className="flex h-full w-full items-center justify-center">
             <m.div
@@ -84,10 +67,10 @@ export default function ThemeToggle() {
                 opacity: isDark ? 0 : 1,
                 scale: isDark ? 0.85 : 1,
               }}
-              transition={{ duration: 0.3, ease: "easeOut" }} // ← slightly slower
+              transition={{ duration: 0.25, ease: "easeOut" }}
               className="absolute"
             >
-              <Sun className="h-4 w-4 text-amber-500" />
+              <Sun className="h-3.5 w-3.5 text-amber-500" />
             </m.div>
             <m.div
               initial={false}
@@ -96,10 +79,10 @@ export default function ThemeToggle() {
                 opacity: isDark ? 1 : 0,
                 scale: isDark ? 1 : 0.85,
               }}
-              transition={{ duration: 0.3, ease: "easeOut" }} // ← slightly slower
+              transition={{ duration: 0.25, ease: "easeOut" }}
               className="absolute"
             >
-              <Moon className="h-4 w-4 text-blue-400" />
+              <Moon className="h-3.5 w-3.5 text-blue-400" />
             </m.div>
           </div>
         </m.span>
