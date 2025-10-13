@@ -1,15 +1,11 @@
 "use client";
 import Image from "next/image";
 import { m } from "framer-motion";
-import { useGrocery } from "@/store/grocery";
 import type { Recipe } from "@/types/recipe";
 import Button from "@/components/Button";
-import { Plus } from "lucide-react";
 import Link from "next/link";
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
-  const addRecipe = useGrocery((s) => s.addRecipe);
-
   return (
     <Link href={`/recipes/${recipe.id}`} className="block">
       <m.article

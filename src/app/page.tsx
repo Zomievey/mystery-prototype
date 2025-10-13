@@ -3,7 +3,6 @@
 import Countdown from "@/components/Countdown";
 import ThemeToggle from "@/components/ThemeToggle";
 import Button from "@/components/Button";
-import { Share2 } from "lucide-react";
 import AnimatedDivider from "@/components/ui/AnimatedDivider";
 import { todayKey } from "@/lib/reveal";
 import { msUntilLocalMidnight } from "@/lib/revealTimer";
