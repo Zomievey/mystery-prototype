@@ -1,7 +1,7 @@
 import recipes from "@/../public/data/recipes.json"; // static import in Next
 import RecipeCard from "@/components/RecipeCard";
 import Link from "next/link";
-import { ArrowLeft, Heart, Share2 } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import Footer from "@/components/Footer";
 
@@ -25,6 +25,7 @@ export default function RecipesPage() {
       <main className="flex-1 mx-auto w-full max-w-5xl p-6">
         <h1 className="text-2xl font-semibold mb-4">Browse recipes</h1>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           {(recipes as any[]).map((r) => (
             <RecipeCard key={r.id} recipe={r} />
           ))}

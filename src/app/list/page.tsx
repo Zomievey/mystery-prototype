@@ -2,7 +2,7 @@
 import { useGrocery } from "@/store/grocery";
 import recipesData from "@/../public/data/recipes.json";
 import Button from "@/components/Button";
-import { Trash2, Check, ArrowLeft, Share2, Heart } from "lucide-react";
+import { Trash2, Check, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 import Footer from "@/components/Footer";
@@ -43,7 +43,9 @@ export default function ListPage() {
         </div>
 
         {Object.keys(groups).length === 0 ? (
-          <p className="text-center text-[hsl(var(--muted-fg))]">Your list is empty.</p>
+          <p className="text-center text-[hsl(var(--muted-fg))]">
+            Your list is empty.
+          </p>
         ) : (
           <div className="space-y-6">
             {Object.entries(groups).map(([aisle, list]) => (
