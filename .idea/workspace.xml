@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47b5932c-51b3-4904-b4a2-0272699dfaf7" name="Changes" comment="pushing updates to list and recipes">
+    <list default="true" id="47b5932c-51b3-4904-b4a2-0272699dfaf7" name="Changes" comment="fixing linting issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/list/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/list/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/recipes/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/recipes/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/reveal/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reveal/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RecipeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RecipeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/grocery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/grocery.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +33,9 @@
     &quot;accountId&quot;: &quot;54d410fa-afeb-4caf-8d93-bac280ed782d&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -144,7 +141,7 @@
       <workItem from="1760294982661" duration="3362000" />
       <workItem from="1760299050560" duration="629000" />
       <workItem from="1760299717877" duration="1642000" />
-      <workItem from="1760342958523" duration="11884000" />
+      <workItem from="1760342958523" duration="13019000" />
     </task>
     <task id="LOCAL-00001" summary="commit to main">
       <option name="closed" value="true" />
@@ -162,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760354322740</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixing linting issues">
+      <option name="closed" value="true" />
+      <created>1760354987361</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760354987361</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +187,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit to main" />
     <MESSAGE value="pushing updates to list and recipes" />
-    <option name="LAST_COMMIT_MESSAGE" value="pushing updates to list and recipes" />
+    <MESSAGE value="fixing linting issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing linting issues" />
   </component>
 </project>
