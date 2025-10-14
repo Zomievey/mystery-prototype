@@ -62,9 +62,8 @@ export default function UploadRecipePage() {
       setProgress({ status: "Finalizing...", progress: 95 });
 
       // Step 3: Navigate to the edit page with the parsed recipe
-        sessionStorage.setItem("newRecipe", JSON.stringify(recipe));
-        router.push("/recipes/new");
-
+      sessionStorage.setItem("newRecipe", JSON.stringify(recipe));
+      router.push("/recipes/new");
     } catch (err) {
       console.error("Error processing recipe:", err);
       setError(

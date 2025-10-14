@@ -1,7 +1,7 @@
 // lib/reveal.ts
 export function todayKey(): string {
-    // UTC date string YYYY-MM-DD (stable across server/client)
-    return new Date().toISOString().slice(0, 10);
+  // UTC date string YYYY-MM-DD (stable across server/client)
+  return new Date().toISOString().slice(0, 10);
 }
 
 export function isUnlocked(now: Date | string = new Date()) {
