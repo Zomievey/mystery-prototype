@@ -11,11 +11,11 @@ import { useEffect, useState } from "react";
 // Only render on client-side to prevent hydration issues
 const useIsClient = () => {
   const [isClient, setIsClient] = useState(false);
-  
+
   useEffect(() => {
     setIsClient(true);
   }, []);
-  
+
   return isClient;
 };
 
@@ -37,14 +37,14 @@ export default function GroceryList() {
   // Handle scroll for header - only on client
   useEffect(() => {
     if (!isClient) return;
-    
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
+
     // Set initial scroll state
     handleScroll();
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isClient]);

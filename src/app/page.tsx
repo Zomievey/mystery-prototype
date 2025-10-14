@@ -14,11 +14,11 @@ import { Menu, X } from "lucide-react";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-    const [unlocked, setUnlocked] = useState<boolean | null>(null);
+  const [unlocked, setUnlocked] = useState<boolean | null>(null);
 
-    useEffect(() => {
-        setUnlocked(isUnlocked(todayKey()));
-    }, []);
+  useEffect(() => {
+    setUnlocked(isUnlocked(todayKey()));
+  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
