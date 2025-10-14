@@ -6,19 +6,25 @@ import Button from "@/components/Button";
 import Link from "next/link";
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
+  const src = recipe.image?.startsWith("//")
+    ? `https:${recipe.image}`
+    : recipe.image;
+
   return (
-    <Link href={`/recipes/${recipe.id}`} className="block">
+    <Link href={`/recipes/${String(recipe.id)}`} className="block">
       <m.article
         whileHover={{ y: -2 }}
         className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm overflow-hidden h-full flex flex-col"
       >
-        {recipe.image && (
+        {src && (
           <div className="relative aspect-[4/3] w-full">
             <Image
-              src={recipe.image}
+              src={src}
               alt={recipe.title}
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              // unoptimized // <- TEMP if you still hit config issues
             />
           </div>
         )}
@@ -30,7 +36,6 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
               {recipe.category ?? "Recipe"}
             </p>
           </div>
-
           <div className="mt-3 flex justify-end">
             <Button variant="outline" className="px-3">
               View Recipe

@@ -5,7 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47b5932c-51b3-4904-b4a2-0272699dfaf7" name="Changes" comment="fixing linting issues">
+      <change afterPath="$PROJECT_DIR$/src/app/api/recipes/[id]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/api/recipes/search/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/recipes/[id]/RecipeDetailClient.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/recipes/new/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/recipes/upload/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/QueryProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useRecipesSearch.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/debounce.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/ocrParser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/recipeUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.webmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.webmanifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/list/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/list/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/recipes/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/recipes/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/recipes/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/recipes/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RecipeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RecipeCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/ThemeProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/ThemeProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/reveal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/reveal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/grocery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/grocery.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/recipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/recipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +62,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -48,6 +76,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.ocrParser.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -55,6 +84,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "C:/Users/DanielleHunter/WebstormProjects/mystery/src/api/recipes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,13 +108,21 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DanielleHunter\WebstormProjects\mystery\src\api\recipes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\DanielleHunter\WebstormProjects\mystery\src\components\ui" />
+      <recent name="C:\Users\DanielleHunter\WebstormProjects\mystery\src\app\recipes" />
+      <recent name="C:\Users\DanielleHunter\WebstormProjects\mystery\src\app" />
       <recent name="C:\Users\DanielleHunter\WebstormProjects\mystery\src\components" />
+      <recent name="C:\Users\DanielleHunter\WebstormProjects\mystery\src\components\ui" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.format">
+  <component name="RunManager" selected="Node.js.ocrParser.ts">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="ocrParser.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/lib/ocrParser.ts" typescript-loader="bundled" working-dir="$PROJECT_DIR$/src/lib">
       <method v="2" />
     </configuration>
     <configuration name="Next.js: server-side" type="js.build_tools.npm">
@@ -119,6 +157,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.ocrParser.ts" />
         <item itemvalue="npm.format" />
         <item itemvalue="npm.lint" />
       </list>
@@ -141,7 +180,7 @@
       <workItem from="1760294982661" duration="3362000" />
       <workItem from="1760299050560" duration="629000" />
       <workItem from="1760299717877" duration="1642000" />
-      <workItem from="1760342958523" duration="13019000" />
+      <workItem from="1760342958523" duration="32337000" />
     </task>
     <task id="LOCAL-00001" summary="commit to main">
       <option name="closed" value="true" />
@@ -167,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760354987361</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixing linting issues">
+      <option name="closed" value="true" />
+      <created>1760416175325</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760416175325</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

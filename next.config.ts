@@ -1,14 +1,11 @@
+// next.config.ts
 import type { NextConfig } from "next";
 import withPWA from "next-pwa";
 
 const isDev = process.env.NODE_ENV !== "production";
 
-const baseConfig: NextConfig = {
-  /* next options here if you need them later */
-};
-
-export default withPWA({
-  ...baseConfig,
+// Configure the PWA plugin (plugin options ONLY)
+const withPWAMiddleware = withPWA({
   dest: "public",
   disable: isDev, // SW only in prod
   register: true,
@@ -37,3 +34,17 @@ export default withPWA({
     },
   ],
 });
+
+// Next's own config (this is where images belongs)
+const nextConfig: NextConfig = {
+  images: {
+    // either one of these would work; keeping both is fine
+    remotePatterns: [
+      { protocol: "https", hostname: "themealdb.com", pathname: "/**" },
+      { protocol: "https", hostname: "www.themealdb.com", pathname: "/**" },
+    ],
+    // OR: domains: ["themealdb.com", "www.themealdb.com"],
+  },
+};
+
+export default withPWAMiddleware(nextConfig as any);
