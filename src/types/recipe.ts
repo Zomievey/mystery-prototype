@@ -21,7 +21,7 @@ export type Ingredient = {
   id: string; // stable key: "onion"
   label: string; // display: "Yellow onion"
   qty: number; // per-serving quantity
-  unit?: Unit;
+  unit?: string;
   aisle?: string; // e.g. "Produce"
   optional?: boolean;
 };
