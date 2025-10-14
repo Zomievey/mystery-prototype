@@ -2,12 +2,25 @@
 import { useGrocery } from "@/store/grocery";
 import recipesData from "@/../public/data/recipes.json";
 import Button from "@/components/Button";
-import { Trash2, Check, ArrowLeft } from "lucide-react";
+import { Trash2, Check, Menu, X } from "lucide-react";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 import Footer from "@/components/Footer";
+import { useEffect, useState } from "react";
 
-export default function ListPage() {
+// Only render on client-side to prevent hydration issues
+const useIsClient = () => {
+  const [isClient, setIsClient] = useState(false);
+  
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  
+  return isClient;
+};
+
+export default function GroceryList() {
+  const isClient = useIsClient();
   const { items, toggle, removeItem, clear } = useGrocery();
 
   const groups = Object.values(items).reduce<
@@ -18,18 +31,133 @@ export default function ListPage() {
     return acc;
   }, {});
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll for header - only on client
+  useEffect(() => {
+    if (!isClient) return;
+    
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    
+    // Set initial scroll state
+    handleScroll();
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isClient]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMenuOpen && !target.closest(".mobile-menu-container")) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMenuOpen]);
+
+  if (!isClient) {
+    // Show minimal content during SSR/SSG
+    return (
+      <div className="min-h-screen flex flex-col bg-background text-foreground">
+        <div className="invisible">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-background/80 backdrop-blur-sm border-b border-border">
-        <div className="w-full max-w-11/12 mx-auto p-4 flex items-center gap-4">
-          <Link href="/" className="p-1 -ml-1 rounded-full hover:bg-muted/50">
-            <ArrowLeft className="h-5 w-5" />
-          </Link>
-          <h1 className="text-xl font-semibold">Home</h1>
-          <div className="ml-auto flex gap-2">
-            <div className="mt-2">
-              <ThemeToggle />
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 transition-colors duration-300 ${isScrolled ? "shadow-sm" : ""}`}
+      >
+        <div className="mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center gap-4">
+              {/* Mobile menu button */}
+              <button
+                className="md:hidden text-foreground p-2 -ml-2 rounded-md hover:bg-foreground/5"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <X className="cursor-pointer" size={20} />
+                ) : (
+                  <Menu className="cursor-pointer" size={20} />
+                )}
+              </button>
+
+              {/* Logo + title */}
+              <Link href="/" className="flex items-center gap-2 group">
+                <span className="text-xl font-semibold tracking-tight text-foreground/90">
+                  Grocery Buddy
+                </span>
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden items-center space-x-8 text-sm font-medium md:flex">
+              <Link
+                href="/recipes"
+                className="relative text-foreground/80 hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-foreground/5"
+              >
+                <span className="relative">Recipes</span>
+              </Link>
+              <Link
+                href="/list"
+                className="relative text-foreground/80 hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-foreground/5 bg-foreground/5"
+              >
+                <span className="relative">Grocery List</span>
+              </Link>
+              <Link
+                href="/recipes/upload"
+                className="relative text-foreground/80 hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-foreground/5"
+              >
+                <span className="relative">Upload Recipe</span>
+              </Link>
+            </nav>
+
+            <div className="flex items-center gap-4">
+              <ThemeToggle className="hidden md:block" />
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          <div
+            className={`md:hidden transition-all duration-300 overflow-hidden ${
+              isMenuOpen ? "max-h-96" : "max-h-0"
+            }`}
+          >
+            <div className="border-t border-border bg-background/95 backdrop-blur-xl">
+              <nav className="px-1 py-2 space-y-1">
+                <Link
+                  href="/recipes"
+                  className="flex items-center px-4 py-2.5 text-[15px] font-medium text-foreground/90 hover:bg-foreground/5 rounded-lg transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span>Recipes</span>
+                </Link>
+                <Link
+                  href="/list"
+                  className="flex items-center px-4 py-2.5 text-[15px] font-medium text-foreground/90 bg-foreground/5 rounded-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span>Grocery List</span>
+                </Link>
+                <Link
+                  href="/recipes/upload"
+                  className="flex items-center px-4 py-2.5 text-[15px] font-medium text-foreground/90 hover:bg-foreground/5 rounded-lg transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span>Upload Recipe</span>
+                </Link>
+              </nav>
             </div>
           </div>
         </div>

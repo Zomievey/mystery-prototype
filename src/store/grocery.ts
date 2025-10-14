@@ -50,9 +50,7 @@ export const useGrocery = create<GroceryState>()(
         }),
       removeItem: (key) =>
         set((s) => {
-          {
-            /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-          }
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { [key]: _, ...rest } = s.items;
           return { items: rest };
         }),

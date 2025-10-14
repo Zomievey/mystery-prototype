@@ -2,6 +2,10 @@
   <dictionary name="project">
     <words>
       <w>hhmmss</w>
+      <w>langs</w>
+      <w>pageseg</w>
+      <w>tessedit</w>
+      <w>traineddata</w>
       <w>webmanifest</w>
     </words>
   </dictionary>

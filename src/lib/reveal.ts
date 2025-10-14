@@ -1,10 +1,12 @@
-export function todayKey(d = new Date()) {
-  return d.toLocaleDateString("en-CA"); // YYYY-MM-DD-ish stable
+// lib/reveal.ts
+export function todayKey(): string {
+    // UTC date string YYYY-MM-DD (stable across server/client)
+    return new Date().toISOString().slice(0, 10);
 }
 
-export function isUnlocked(now = new Date()) {
-  // unlocks at local midnight (00:00 of "today")
-  const startOfToday = new Date(now);
+export function isUnlocked(now: Date | string = new Date()) {
+  const date = typeof now === "string" ? new Date(now) : now;
+  const startOfToday = new Date(date);
   startOfToday.setHours(0, 0, 0, 0);
-  return now.getTime() >= startOfToday.getTime();
+  return date.getTime() >= startOfToday.getTime();
 }

@@ -15,13 +15,14 @@ export type Unit =
   | "can" // canned goods
   | "package" // packaged goods
   | "bottle" // bottled items
-  | "head"; // heads (e.g., garlic, lettuce)
+  | "head"
+  | string; // heads (e.g., garlic, lettuce)
 
 export type Ingredient = {
   id: string; // stable key: "onion"
   label: string; // display: "Yellow onion"
   qty: number; // per-serving quantity
-  unit?: string;
+  unit?: Unit;
   aisle?: string; // e.g. "Produce"
   optional?: boolean;
 };
@@ -35,6 +36,7 @@ export type Recipe = {
   ingredients: Ingredient[];
   prepTime?: string;
   cookTime?: string;
+  readyInMinutes?: number;
   instructions: string[];
   tags?: string[];
   calories?: number;

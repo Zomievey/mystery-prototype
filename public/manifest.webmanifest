@@ -1,6 +1,6 @@
 {
-  "name": "Mystery Meal",
-  "short_name": "MysteryMeal",
+  "name": "Grocery Buddy",
+  "short_name": "GroceryBuddy",
   "description": "Daily surprise meal reveal with grocery lists and favorites.",
   "start_url": "/",
   "scope": "/",
